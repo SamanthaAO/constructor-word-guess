@@ -1,7 +1,7 @@
 
 //var letterInput = process.argv[2].toUpperCase();
 //var wordArray = ["C", "A", "T"];
-var displayArray =[];
+//var displayArray =[];
 
 //console.log(letterInput);
 
@@ -10,14 +10,15 @@ function Letter(value, guessed) {
     //guessed is a boolean
     this.guessed = guessed;
     this.guess = function () {
-        for (var i = 0; i < displayArray.length; i++) {
-            if (letterInput === displayArray[i]){
+        //"C" will be replaced with letter input
+            if ("R" === this.value){
                 this.guessed = true;
+                console.log("TRUE" + this.value + "and" + this.guessed)
             }
             else{
                 this.guessed = false;
+                console.log(this.value + "and" + this.guessed)
             }
-        }
     }
     //need this to properly be replaced and not just pushed
     this.replace = function (){
@@ -30,15 +31,17 @@ function Letter(value, guessed) {
     }
 }
 
-var letterInput = new Letter(process.argv[2].toUpperCase(), false);
+//var letterInput = new Letter(process.argv[2].toUpperCase(), false);
 //var a = new Letter("A", false);
 
-console.log(letterInput.guessed);
-letterInput.replace();
-console.log(displayArray);
-letterInput.guess();
-console.log(letterInput.guessed = true);
-letterInput.replace();
-console.log(displayArray);
+// console.log(letterInput.guessed);
+// letterInput.replace();
+// console.log(displayArray);
+// letterInput.guess();
+// console.log(letterInput.guessed = true);
+// letterInput.replace();
+// console.log(displayArray);
 
+
+module.exports = Letter;
 
