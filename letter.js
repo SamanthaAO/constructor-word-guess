@@ -9,22 +9,27 @@ function Letter(value, guessed) {
     this.value = value;
     //guessed is a boolean
     this.guessed = guessed;
-    this.guess = function () {
+    this.guess = function (letterInput) {
         //"C" will be replaced with letter input
-            if ("R" === this.value){
+            if (letterInput === this.value){
                 this.guessed = true;
                 console.log("TRUE" + this.value + "and" + this.guessed)
             }
-            else{
-                this.guessed = false;
-                console.log(this.value + "and" + this.guessed)
-            }
+            // else{
+            //     this.guessed = false;
+            //     console.log(this.value + "and" + this.guessed)
+            // }
     }
     //need this to properly be replaced and not just pushed
-    this.replace = function (){
+    this.replaceLetter = function (){
         if(this.guessed){
             return this.value;
         }
+        
+        else if(this.value == " "){
+            return " ";
+        }
+
         else{
             return "_";
         }

@@ -1,5 +1,6 @@
 var Letter = require("./letter.js")
 
+
 //var chosenWord = "CHERRY";
 //console.log(chosenWord.split(""))
 
@@ -8,18 +9,18 @@ function Word(chosenWord) {
     this.letters = [];
 
     this.toString = function(){
-        var displayArray = [];
-        for(var i=0; i<this.letters.length; i++){
-            displayArray.push(this.letters[i].replace()); 
-            }
+        var displayArray = this.letters.map(letter => letter.replaceLetter());
+        // for(var i=0; i<this.letters.length; i++){
+        //     displayArray.push(this.letters[i].replaceLetter()); 
+        //     }
 
             console.log(displayArray.join(" "));
         
     }
 
-    this.assessLetters = function () {
+    this.assessLetters = function (letterInput) {
         for(var i=0; i<this.letters.length; i++){
-            this.letters[i].guess();   
+            this.letters[i].guess(letterInput);   
             }
     }
 
@@ -35,12 +36,8 @@ function Word(chosenWord) {
 
 }
 
-var game = new Word("CHERRY");
-
-game.addLetter();
-game.assessLetters();
-game.toString();
 
 
 
-//module.exports = Word;
+
+module.exports = Word;
