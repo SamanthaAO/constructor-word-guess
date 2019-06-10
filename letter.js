@@ -10,15 +10,20 @@ function Letter(value, guessed) {
     //guessed is a boolean
     this.guessed = guessed;
     this.guess = function (letterInput) {
+        
         //"C" will be replaced with letter input
             if (letterInput === this.value){
                 this.guessed = true;
-                console.log("TRUE" + this.value + "and" + this.guessed)
+                console.log("CORRECT!!!")
+                // correctCounter = true;
+                return true;
+                
             }
-            // else{
-            //     this.guessed = false;
-            //     console.log(this.value + "and" + this.guessed)
+            // else {
+            //     correctCounter = false;
+            //     return correctCounter;
             // }
+            
     }
     //need this to properly be replaced and not just pushed
     this.replaceLetter = function (){

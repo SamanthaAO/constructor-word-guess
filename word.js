@@ -19,9 +19,16 @@ function Word(chosenWord) {
     }
 
     this.assessLetters = function (letterInput) {
+        var isAnyCorrect = false;
         for(var i=0; i<this.letters.length; i++){
-            this.letters[i].guess(letterInput);   
+            if (this.letters[i].guess(letterInput)){
+                isAnyCorrect = true;
             }
+
+        }
+        console.log(isAnyCorrect + " word");
+        return isAnyCorrect;
+        
     }
 
     this.addLetter = function(){
@@ -30,7 +37,7 @@ function Word(chosenWord) {
             value = toBeLetters[i];
             this.letters.push(new Letter(value, false))
         }
-        console.log(this.letters);
+        //console.log(this.letters);
         
     }
 
