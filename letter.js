@@ -14,7 +14,7 @@ function Letter(value, guessed) {
         //"C" will be replaced with letter input
             if (letterInput === this.value){
                 this.guessed = true;
-                console.log("CORRECT!!!")
+                
                 // correctCounter = true;
                 return true;
                 

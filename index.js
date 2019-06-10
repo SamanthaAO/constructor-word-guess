@@ -4,6 +4,7 @@ var inquirer = require('inquirer');
 
 var words = ["PINEAPPLE", "CHERRY", "COCONUT"];
 var correctCounter;
+var displayStringVictory;
 //var letterInput = "";
 
 
@@ -28,10 +29,10 @@ function playGame(callback) {
             ])
             .then(answers => {
                 correctCounter = game.assessLetters(answers.choice.toUpperCase());
-                console.log(correctCounter + " index");
-                game.toString();
+                //console.log(correctCounter + " index");
+                displayStringVictory = game.toString();
                 callback();
-                count++;
+                
                 playGame(guessCorrect);
             });
     }
@@ -44,11 +45,24 @@ function playGame(callback) {
 
 
 function guessCorrect(){
-    console.log("guesscorrect" + correctCounter);
+    //console.log("guesscorrect" + correctCounter);
     if (correctCounter == false){
         guesses--;
         console.log("You have chosen poorly **" + guesses + "** remaining.")
+    }
+    else{
+        console.log("CORRECT!!!")
+        victory();
     };
+}
+
+function victory(){
+console.log(displayStringVictory.indexOf("_"));
+    if(displayStringVictory.indexOf("_") == -1){
+        console.log("You got it correct!! Here is your next word")
+        ///this will change to select new word and then play game
+        playGame(guessCorrect);
+    }
 }
 
 

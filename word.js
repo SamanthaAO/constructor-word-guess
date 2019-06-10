@@ -14,7 +14,11 @@ function Word(chosenWord) {
         //     displayArray.push(this.letters[i].replaceLetter()); 
         //     }
 
-            console.log(displayArray.join(" "));
+        var displayString = displayArray.join(" ");
+
+            console.log(displayString);
+
+        return displayString;
         
     }
 
@@ -26,7 +30,7 @@ function Word(chosenWord) {
             }
 
         }
-        console.log(isAnyCorrect + " word");
+        //console.log(isAnyCorrect + " word");
         return isAnyCorrect;
         
     }
