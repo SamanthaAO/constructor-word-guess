@@ -11,7 +11,6 @@ var displayStringVictory;
 var game;
 
 wordChoice();
-game.addLetter();
 
 
 var guesses = 5;
@@ -32,14 +31,14 @@ function playGame(callback) {
             .then(answers => {
                 correctCounter = game.assessLetters(answers.choice.toUpperCase());
                 //console.log(correctCounter + " index");
-                displayStringVictory = game.toString();
+                //displayStringVictory = game.toString();
                 callback();
-                
+                displayStringVictory = game.toString();
                 playGame(guessCorrect);
             });
     }
     else {
-        console.log("YOUR LOSE")
+        console.log("YOU LOSE")
     }
 }
 
@@ -53,7 +52,7 @@ function guessCorrect(){
         console.log("You have chosen poorly **" + guesses + "** remaining.")
     }
     else{
-        console.log("CORRECT!!!")
+        console.log("CORRECT GUESS!!!")
         victory();
     };
 }
@@ -61,16 +60,19 @@ function guessCorrect(){
 function wordChoice(){
     var randomNum = Math.floor(Math.random() * words.length);
     console.log(words[randomNum]);
-    game = new Word(words[randomNum]) ;
+    game = new Word(words[randomNum]);
+    game.addLetter();
+    
+    //console.log(game);
 
 }
 
 function victory(){
 //console.log(displayStringVictory.indexOf("_"));
     if(displayStringVictory.indexOf("_") == -1){
-        console.log("You got it correct!! Here is your next word")
+        console.log("You have rrevieled the entire word!! Commence guessing on your next word")
         ///this will change to select new word and then play game
-        playGame(guessCorrect);
+        wordChoice();
     }
 }
 
