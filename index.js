@@ -15,11 +15,13 @@ wordChoice();
 
 var guesses = 5;
 
-game.toString();
+
+
 playGame(guessCorrect);
 
 
 function playGame(callback) {
+    
     if (guesses > 0) {
         inquirer
             .prompt([
@@ -31,9 +33,9 @@ function playGame(callback) {
             .then(answers => {
                 correctCounter = game.assessLetters(answers.choice.toUpperCase());
                 //console.log(correctCounter + " index");
-                //displayStringVictory = game.toString();
-                callback();
                 displayStringVictory = game.toString();
+                callback();
+                //displayStringVictory = game.toString();
                 playGame(guessCorrect);
             });
     }
@@ -49,10 +51,10 @@ function guessCorrect(){
     //console.log("guesscorrect" + correctCounter);
     if (correctCounter == false){
         guesses--;
-        console.log("You have chosen poorly **" + guesses + "** remaining.")
+        console.log("You have chosen poorly **" + guesses + "** remaining.\n\n")
     }
     else{
-        console.log("CORRECT GUESS!!!")
+        console.log("CORRECT GUESS!!! \n\n")
         victory();
     };
 }
@@ -62,7 +64,7 @@ function wordChoice(){
     console.log(words[randomNum]);
     game = new Word(words[randomNum]);
     game.addLetter();
-    
+    game.toString();
     //console.log(game);
 
 }
@@ -70,9 +72,10 @@ function wordChoice(){
 function victory(){
 //console.log(displayStringVictory.indexOf("_"));
     if(displayStringVictory.indexOf("_") == -1){
-        console.log("You have rrevieled the entire word!! Commence guessing on your next word")
+        console.log("You have revealed the entire word!! Commence guessing on your next word")
         ///this will change to select new word and then play game
         wordChoice();
+        
     }
 }
 
