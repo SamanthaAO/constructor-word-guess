@@ -1,57 +1,47 @@
 
-//var letterInput = process.argv[2].toUpperCase();
-//var wordArray = ["C", "A", "T"];
-//var displayArray =[];
-
-//console.log(letterInput);
-
+//constructor used for each letter inthe word
 function Letter(value, guessed) {
+    //this is where the actual letter value is stored
     this.value = value;
+
     //guessed is a boolean
     this.guessed = guessed;
+
+    //this function changes the boolean in guessed for the letter if it has been guessed by the player
     this.guess = function (letterInput) {
         
-        //"C" will be replaced with letter input
+        //compares player input to the value of the letter
             if (letterInput === this.value){
                 this.guessed = true;
                 
-                // correctCounter = true;
+                // this true is returned becuase this being true also trriggers the booleean in assesLetters for isAnyCorrect
                 return true;
                 
             }
-            // else {
-            //     correctCounter = false;
-            //     return correctCounter;
-            // }
+           
             
     }
-    //need this to properly be replaced and not just pushed
+    //diplays letter or _ depending on guessed
     this.replaceLetter = function (){
+
+        //shows letter if has been guessed
         if(this.guessed){
             return this.value;
         }
         
+        //shows " " for " "s
         else if(this.value == " "){
             return " ";
         }
 
+        //shows _ if the letter has not been guessed
         else{
             return "_";
         }
     }
 }
 
-//var letterInput = new Letter(process.argv[2].toUpperCase(), false);
-//var a = new Letter("A", false);
 
-// console.log(letterInput.guessed);
-// letterInput.replace();
-// console.log(displayArray);
-// letterInput.guess();
-// console.log(letterInput.guessed = true);
-// letterInput.replace();
-// console.log(displayArray);
-
-
+//exports letter to be used in word
 module.exports = Letter;
 
